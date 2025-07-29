@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import nltk
 from wordcloud import WordCloud
+from wordcloud import STOPWORDS
 import spacy
 import string
 import re
