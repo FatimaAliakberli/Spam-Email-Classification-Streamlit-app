@@ -95,6 +95,7 @@ df_new.head(20)
 
 
 pipeline = make_pipeline(CountVectorizer(), MultinomialNB())
+pipeline.fit(X, y)
 cv_scores = cross_val_score(pipeline, X, y, cv=5, scoring = 'accuracy')
 print(cv_scores)
 print(cv_scores.mean())
