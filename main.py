@@ -16,7 +16,16 @@ from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import cross_val_score
 
 
-nlp = spacy.load("en_core_web_sm")
+@st.cache_resource
+def load_nlp():
+    try:
+        return spacy.load("en_core_web_sm")
+    except:
+        import spacy.cli
+        spacy.cli.download("en_core_web_sm")
+        return spacy.load("en_core_web_sm")
+
+nlp = load_nlp()
 
 
 df = pd.read_csv("spam.csv", encoding="ISO-8859-1")
