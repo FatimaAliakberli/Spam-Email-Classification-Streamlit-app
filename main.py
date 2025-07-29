@@ -83,17 +83,6 @@ df_new = pd.DataFrame(dic_all)
 df_new.head(20)
 
 
-word_cloud = WordCloud(collocations = False, background_color = 'gray', width = 2000, height = 1200).generate("".join(df[df['Category'] == 1]['v2']))
-plt.figure(figsize = (20, 10), facecolor = 'k')
-plt.imshow(word_cloud, interpolation = 'bilinear')
-plt.axis = ("off")
-plt.show()
-
-word_cloud = WordCloud(collocations = False, background_color = 'gray', width = 2000, height = 1200).generate("".join(df[df['Category'] == 0]['v2']))
-plt.figure(figsize = (20, 10), facecolor = 'k')
-plt.imshow(word_cloud, interpolation = 'bilinear')
-plt.axis = ("off")
-plt.show()
 
 
 pipeline = make_pipeline(CountVectorizer(), MultinomialNB())
